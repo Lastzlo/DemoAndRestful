@@ -10,7 +10,8 @@ import { Task } from "./entity/Task";
 export class AppComponent {
   title = 'DemoAndRestful';
 
-  task: Task | undefined;
+  task!: Task
+  //task: Task | undefined;
 
   constructor(private http: HttpClient) {
     this.http.get<Task>('http://localhost:8080/task').subscribe(result => {
