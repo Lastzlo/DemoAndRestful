@@ -13,10 +13,10 @@ export class AppComponent {
   task!: Task
   //task: Task | undefined;
 
-  constructor(private http: HttpClient) {
-    this.http.get<Task>('http://localhost:8080/task').subscribe(result => {
-      this.task = result;
-      console.log(this.task);
-    });
-  }
+  // constructor(private http: HttpClient) {
+  //   this.http.get<Task>('http://localhost:8080/task').subscribe(result => {
+  //     this.task = result;
+  //     console.log(this.task);
+  //   });
+  // }
 }
