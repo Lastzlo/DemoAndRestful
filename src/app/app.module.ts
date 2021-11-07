@@ -9,6 +9,7 @@ import {ButtonModule} from "primeng/button";
 import {DialogModule} from "primeng/dialog";
 import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
 import {InputTextModule} from "primeng/inputtext";
+import {InputTextareaModule} from "primeng/inputtextarea";
 
 @NgModule({
   declarations: [
@@ -21,6 +22,7 @@ import {InputTextModule} from "primeng/inputtext";
     ButtonModule,
     DialogModule,
     InputTextModule,
+    InputTextareaModule,
 
     BrowserAnimationsModule
   ],
