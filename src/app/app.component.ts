@@ -15,37 +15,43 @@ export class AppComponent {
 
   displayModal!: boolean;
 
-  showModalDialog() {
+  showModalDialog(addForm: NgForm) {
+    addForm.reset();
     this.displayModal = true;
   }
 
 
   public onSendEmail(addForm: NgForm): void {
-    const defaultDate = new Date();
-    const email = {
-      recipients: [
-        {
-          mailAddress: addForm.value.mailAddress,
-          recipientType: RecipientType.TO
-        }
-      ],
-      emailTemplate: {
-        body: addForm.value.body,
-        subject: addForm.value.subject
-      },
-      emailSchedule: {
-        sendDate: defaultDate,
-        repeatAt: RepeatType.NOTHING
-      }
-    } as Email;
-    console.log('email', email);
+    console.log('NgForm', addForm.value);
+    this.displayModal = false;
+    addForm.reset();
 
-    this.emailService.addEmail(email).subscribe(
-      (response: Email) => {
-        console.log(response);
-        addForm.reset();
-      }
-    );
+
+    // const defaultDate = new Date();
+    // const email = {
+    //   recipients: [
+    //     {
+    //       mailAddress: addForm.value.mailAddress,
+    //       recipientType: RecipientType.TO
+    //     }
+    //   ],
+    //   emailTemplate: {
+    //     body: addForm.value.body,
+    //     subject: addForm.value.subject
+    //   },
+    //   emailSchedule: {
+    //     sendDate: defaultDate,
+    //     repeatAt: RepeatType.NOTHING
+    //   }
+    // } as Email;
+    // console.log('email', email);
+    //
+    // this.emailService.addEmail(email).subscribe(
+    //   (response: Email) => {
+    //     console.log(response);
+    //     addForm.reset();
+    //   }
+    // );
   }
 
 }

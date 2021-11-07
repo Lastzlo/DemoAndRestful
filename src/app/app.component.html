@@ -1,14 +1,28 @@
 <!--<div>{{task.name}}</div>-->
 <!--<div *ngIf="task">{{task.name}}</div>-->
 
+<!--Create email button-->
+<p-button (click)="showModalDialog(addForm)" icon="pi pi-external-link" label="New Email"></p-button>
 
-<p-button (click)="showModalDialog()" icon="pi pi-external-link" label="New Email"></p-button>
-<p-dialog header="Header" [(visible)]="displayModal" [modal]="true" [style]="{width: '50vw'}"
+<!--Create email dialog-->
+<p-dialog header="Create new mail" [(visible)]="displayModal" [modal]="true" [style]="{width: '50vw'}"
           [draggable]="false" [resizable]="false">
-  <p class="p-m-0">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco
-    laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
-    Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-  <ng-template pTemplate="footer">
-    <p-button (click)="displayModal=false" label="Close" styleClass="p-button-text"></p-button>
-  </ng-template>
+  <div class="dialog-body">
+    <form #addForm="ngForm" (ngSubmit)="onSendEmail(addForm)">
+      <h4>Subject</h4>
+      <div class="form-group">
+        <input type="text" placeholder="Subject" pInputText ngModel name="subject"/>
+      </div>
+      <h4>Recipient mail address</h4>
+      <div class="form-group">
+        <input type="text" placeholder="user@mail.com" pInputText ngModel name="mailAddress"/>
+      </div>
+
+      <!-- buttons -->
+      <div class="modal-footer">
+        <p-button (click)="displayModal=false" label="Close" styleClass="p-button-text"></p-button>
+        <p-button label="Send" type="submit" styleClass="p-button-text"></p-button>
+      </div>
+    </form>
+  </div>
 </p-dialog>
