@@ -8,6 +8,7 @@ import {EmailService} from "./service/email.service";
 import {ButtonModule} from "primeng/button";
 import {DialogModule} from "primeng/dialog";
 import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
+import {InputTextModule} from "primeng/inputtext";
 
 @NgModule({
   declarations: [
@@ -19,6 +20,7 @@ import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
     FormsModule,
     ButtonModule,
     DialogModule,
+    InputTextModule,
 
     BrowserAnimationsModule
   ],
