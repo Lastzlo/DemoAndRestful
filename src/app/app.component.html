@@ -10,6 +10,10 @@
   <div class="dialog-body">
     <form #addForm="ngForm" (ngSubmit)="onSendEmail(addForm)">
       <div class="form-group">
+        <h5>Recipient mail address</h5>
+        <input type="text" placeholder="user@mail.com" pInputText ngModel name="emailAddress"/>
+      </div>
+      <div class="form-group">
         <h5>Email subject</h5>
         <textarea rows="2" cols="80" pInputTextarea ngModel name="emailSubject"></textarea>
       </div>
@@ -19,11 +23,6 @@
           <textarea rows="5" cols="80" pInputTextarea ngModel name="emailBody"></textarea>
         </span>
       </div>
-
-<!--      <h4>Recipient mail address</h4>-->
-<!--      <div class="form-group">-->
-<!--        <input type="text" placeholder="user@mail.com" pInputText ngModel name="mailAddress"/>-->
-<!--      </div>-->
 
       <!-- buttons -->
       <div class="modal-footer">
