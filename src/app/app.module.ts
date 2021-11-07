@@ -3,7 +3,8 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { AppComponent } from './app.component';
 import {HttpClientModule} from "@angular/common/http";
-import {ButtonModule} from "primeng/button";
+import {FormsModule} from "@angular/forms";
+import {EmailService} from "./service/email.service";
 
 @NgModule({
   declarations: [
@@ -12,9 +13,9 @@ import {ButtonModule} from "primeng/button";
   imports: [
     BrowserModule,
     HttpClientModule,
-    ButtonModule
+    FormsModule
   ],
-  providers: [],
+  providers: [EmailService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
