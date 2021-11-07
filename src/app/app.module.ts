@@ -6,6 +6,8 @@ import {HttpClientModule} from "@angular/common/http";
 import {FormsModule} from "@angular/forms";
 import {EmailService} from "./service/email.service";
 import {ButtonModule} from "primeng/button";
+import {DialogModule} from "primeng/dialog";
+import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
 
 @NgModule({
   declarations: [
@@ -15,7 +17,10 @@ import {ButtonModule} from "primeng/button";
     BrowserModule,
     HttpClientModule,
     FormsModule,
-    ButtonModule
+    ButtonModule,
+    DialogModule,
+
+    BrowserAnimationsModule
   ],
   providers: [EmailService],
   bootstrap: [AppComponent]

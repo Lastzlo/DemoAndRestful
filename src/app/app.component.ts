@@ -8,10 +8,17 @@ import {RepeatType} from "./entity/email/repeatType";
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
-  styleUrls: ['./app.component.css']
+  styleUrls: ['./app.component.css','./app.component.scss',]
 })
 export class AppComponent {
   constructor( private emailService: EmailService){}
+
+  displayModal!: boolean;
+
+  showModalDialog() {
+    this.displayModal = true;
+  }
+
 
   public onSendEmail(addForm: NgForm): void {
     const defaultDate = new Date();
