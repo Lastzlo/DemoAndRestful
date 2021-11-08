@@ -2,13 +2,13 @@
 <!--<div *ngIf="task">{{task.name}}</div>-->
 
 <!--Create email button-->
-<p-button (click)="showModalDialog(addForm)" icon="pi pi-external-link" label="New Email"></p-button>
+<p-button (click)="showModalDialog(emailForm)" icon="pi pi-external-link" label="New Email"></p-button>
 
 <!--Create email dialog-->
 <p-dialog header="Create new mail" [(visible)]="displayModal" [modal]="true" [style]="{width: '50vw'}"
           [draggable]="false" [resizable]="false">
   <div class="dialog-body">
-    <form #addForm="ngForm" (ngSubmit)="onSendEmail(addForm)">
+    <form #emailForm="ngForm" (ngSubmit)="onSendEmail(emailForm)">
       <div class="form-group">
         <h5>Recipients mails</h5>
         <h6>TO:</h6>
