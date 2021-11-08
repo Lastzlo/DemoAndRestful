@@ -13,10 +13,12 @@ import {InputTextareaModule} from "primeng/inputtextarea";
 import {CalendarModule} from "primeng/calendar";
 import {ChipsModule} from "primeng/chips";
 import {InputSwitchModule} from "primeng/inputswitch";
+import { EmailFormComponent } from './email-form/email-form.component';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    EmailFormComponent
   ],
   imports: [
     BrowserModule,
