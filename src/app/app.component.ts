@@ -21,6 +21,15 @@ export class AppComponent {
     this.displayModal = true;
   }
 
+  public onSendDate(): void {
+    let currDateTime: Date = new Date();
+    console.log('currDateTime', currDateTime)
+
+    this.emailService.checkDate(currDateTime).subscribe(
+      (response: Date) => console.log(response)
+    );
+
+  }
 
   public onSendEmail(emailForm: NgForm): void {
     this.displayModal = false;
