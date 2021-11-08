@@ -14,4 +14,8 @@ export class EmailService {
     return this.http.post<Email>(`${this.apiServerUrl}/api/v1/emails/`, email);
   }
 
+  public checkDate(date: Date): Observable<Date> {
+    return this.http.post<Date>(`${this.apiServerUrl}/api/v1/emails/date`, date);
+  }
+
 }
