@@ -45,6 +45,7 @@ export class AppComponent {
     console.log('emailForm', emailForm.value);
 
     const email = this.parseForm(emailForm);
+    if(this.isScheduleFormHidden) email.emailSchedule.sendNow = true;
     console.log('email', email);
 
     this.emailService.addEmail(email).subscribe(
