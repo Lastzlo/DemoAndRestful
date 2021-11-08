@@ -51,27 +51,27 @@ export class AppComponent {
     return recipients;
   }
 
-  public parseForm(addForm: NgForm): Email {
+  public parseForm(emailForm: NgForm): Email {
 
     const email = {
       emailTemplate: {
-        body: addForm.value.emailBody,
-        subject: addForm.value.emailSubject
+        body: emailForm.value.emailBody,
+        subject: emailForm.value.emailSubject
       },
       emailSchedule: {
-        sendDate: addForm.value.emailSendDate,
+        sendDateTime: emailForm.value.emailSendDate,
         repeatAt: RepeatType.NOTHING
       },
       recipients: [] as Recipient[]
     } as Email;
 
-    const recipientsTO = this.parseRecipients(addForm.value.recipientsEmailsTO, RecipientType.TO);
+    const recipientsTO = this.parseRecipients(emailForm.value.recipientsEmailsTO, RecipientType.TO);
     recipientsTO.forEach(rec => email.recipients.push(rec));
 
-    const recipientsCC = this.parseRecipients(addForm.value.recipientsEmailsCC, RecipientType.CC);
+    const recipientsCC = this.parseRecipients(emailForm.value.recipientsEmailsCC, RecipientType.CC);
     recipientsCC.forEach(rec => email.recipients.push(rec));
 
-    const recipientsBCC = this.parseRecipients(addForm.value.recipientsEmailsBCC, RecipientType.BCC);
+    const recipientsBCC = this.parseRecipients(emailForm.value.recipientsEmailsBCC, RecipientType.BCC);
     recipientsBCC.forEach(rec => email.recipients.push(rec));
 
     return email;
