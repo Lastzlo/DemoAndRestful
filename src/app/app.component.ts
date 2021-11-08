@@ -1,9 +1,10 @@
-import {Component, OnInit} from '@angular/core';
+import {Component} from '@angular/core';
 import {Email} from "./entity/email/email";
 import {EmailService} from './service/email.service';
 import {NgForm} from "@angular/forms";
 import {RecipientType} from "./entity/email/recipientType";
 import {RepeatType} from "./entity/email/repeatType";
+import {Recipient} from "./entity/email/recipient";
 
 @Component({
   selector: 'app-root',
@@ -15,43 +16,65 @@ export class AppComponent {
 
   displayModal!: boolean;
 
-  showModalDialog(addForm: NgForm) {
-    addForm.reset();
+  public showModalDialog(emailForm: NgForm) {
+    emailForm.reset();
     this.displayModal = true;
   }
 
 
-  public onSendEmail(addForm: NgForm): void {
-    console.log('NgForm', addForm.value);
+  public onSendEmail(emailForm: NgForm): void {
     this.displayModal = false;
-    addForm.reset();
+    console.log('emailForm', emailForm.value);
 
+    const email = this.parseForm(emailForm);
+    console.log('email', email);
 
-    // const defaultDate = new Date();
-    // const email = {
-    //   recipients: [
-    //     {
-    //       mailAddress: addForm.value.mailAddress,
-    //       recipientType: RecipientType.TO
-    //     }
-    //   ],
-    //   emailTemplate: {
-    //     body: addForm.value.body,
-    //     subject: addForm.value.subject
-    //   },
-    //   emailSchedule: {
-    //     sendDate: defaultDate,
-    //     repeatAt: RepeatType.NOTHING
-    //   }
-    // } as Email;
-    // console.log('email', email);
-    //
-    // this.emailService.addEmail(email).subscribe(
-    //   (response: Email) => {
-    //     console.log(response);
-    //     addForm.reset();
-    //   }
-    // );
+    this.emailService.addEmail(email).subscribe(
+      (response: Email) => console.log(response)
+    );
+
+    emailForm.reset();
+  }
+
+  public parseRecipients(inputEmails: string[] | null, type: RecipientType): Recipient[] {
+    let recipients: Recipient[] = [];
+    if(inputEmails === null) return recipients;
+
+    inputEmails.forEach(inputEmail => {
+      recipients.push(
+        {
+          email: inputEmail,
+          recipientType: type
+        } as Recipient
+      )
+    })
+    return recipients;
+  }
+
+  public parseForm(addForm: NgForm): Email {
+
+    const email = {
+      emailTemplate: {
+        body: addForm.value.emailBody,
+        subject: addForm.value.emailSubject
+      },
+      emailSchedule: {
+        sendDate: addForm.value.emailSendDate,
+        repeatAt: RepeatType.NOTHING
+      },
+      recipients: [] as Recipient[]
+    } as Email;
+
+    const recipientsTO = this.parseRecipients(addForm.value.recipientsEmailsTO, RecipientType.TO);
+    recipientsTO.forEach(rec => email.recipients.push(rec));
+
+    const recipientsCC = this.parseRecipients(addForm.value.recipientsEmailsCC, RecipientType.CC);
+    recipientsCC.forEach(rec => email.recipients.push(rec));
+
+    const recipientsBCC = this.parseRecipients(addForm.value.recipientsEmailsBCC, RecipientType.BCC);
+    recipientsBCC.forEach(rec => email.recipients.push(rec));
+
+    return email;
   }
 
 }
