@@ -24,6 +24,8 @@ export class AppComponent {
 
 
   public showModalDialog(emailForm: NgForm) {
+    this.isEnableSchedule = false;
+    this.isScheduleFormHidden = true;
     emailForm.reset();
     this.displayModal = true;
   }
