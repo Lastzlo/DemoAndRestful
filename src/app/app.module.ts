@@ -12,6 +12,7 @@ import {InputTextModule} from "primeng/inputtext";
 import {InputTextareaModule} from "primeng/inputtextarea";
 import {CalendarModule} from "primeng/calendar";
 import {ChipsModule} from "primeng/chips";
+import {InputSwitchModule} from "primeng/inputswitch";
 
 @NgModule({
   declarations: [
@@ -27,6 +28,7 @@ import {ChipsModule} from "primeng/chips";
     InputTextareaModule,
     CalendarModule,
     ChipsModule,
+    InputSwitchModule,
 
     BrowserAnimationsModule
   ],
