@@ -3,6 +3,7 @@
 
 <!--Create email button-->
 <p-button (click)="showModalDialog(emailForm)" icon="pi pi-external-link" label="New Email"></p-button>
+<p-button (click)="onSendDate()" icon="pi pi-external-link" label="SendDate"></p-button>
 
 <!--Create email dialog-->
 <p-dialog header="Create new mail" [(visible)]="displayModal" [modal]="true" [style]="{width: '50vw'}"
