@@ -1,6 +1,7 @@
 import {RecipientType} from './recipientType';
 
 export interface Recipient {
-  mailAddress: string;
+  email: string;
   recipientType: RecipientType;
 }
+
