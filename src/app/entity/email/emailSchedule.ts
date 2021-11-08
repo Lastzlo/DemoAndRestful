@@ -3,7 +3,7 @@ import {RepeatType} from './repeatType';
 export interface EmailSchedule {
   sendNow: boolean;
 
-  sendDate: Date;
+  sendDateTime: Date;
   endDate: Date;
   repeatAt: RepeatType;
 
