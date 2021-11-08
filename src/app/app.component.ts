@@ -15,6 +15,13 @@ export class AppComponent {
   constructor( private emailService: EmailService){}
 
   displayModal!: boolean;
+  isScheduleFormHidden!: boolean;
+  isEnableSchedule!: boolean;
+
+  public switchScheduleFormHidden() {
+    this.isScheduleFormHidden = !this.isScheduleFormHidden;
+  }
+
 
   public showModalDialog(emailForm: NgForm) {
     emailForm.reset();
