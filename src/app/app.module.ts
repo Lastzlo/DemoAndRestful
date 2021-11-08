@@ -10,6 +10,8 @@ import {DialogModule} from "primeng/dialog";
 import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
 import {InputTextModule} from "primeng/inputtext";
 import {InputTextareaModule} from "primeng/inputtextarea";
+import {CalendarModule} from "primeng/calendar";
+import {ChipsModule} from "primeng/chips";
 
 @NgModule({
   declarations: [
@@ -23,6 +25,8 @@ import {InputTextareaModule} from "primeng/inputtextarea";
     DialogModule,
     InputTextModule,
     InputTextareaModule,
+    CalendarModule,
+    ChipsModule,
 
     BrowserAnimationsModule
   ],
